@@ -1,0 +1,44 @@
+.App {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+
+  .App-header {
+    background-color: #282c34;
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    color: white;
+    margin-bottom: 50px;
+  }
+
+  .chat-room {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .messages {
+      align-items: center;
+      border: 2px solid blue;
+      width: 50vw;
+      font-size: 16px;
+      padding: 20px;
+      min-height: 40vh;
+      max-height: 40vh;
+      overflow-y: scroll;
+
+      .message {
+        text-align: left;
+        background-color: whitesmoke;
+        padding: 2px 15px;
+        margin: 10px 0;
+
+        .avatar {
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+}
