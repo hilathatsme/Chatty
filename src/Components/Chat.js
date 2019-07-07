@@ -30,7 +30,15 @@ class Chat extends Component {
     
         };
 
+        this.onFieldChange = this.onFieldChange.bind(this);
+        this.updateScroll = this.updateScroll.bind(this);
+        this.manageUsers = this.manageUsers.bind(this);
+        this.sendMessage = this.sendMessage.bind(this);
     }
+    onFieldChange = (e) => {
+        this.setState({[e.target.name]: e.target.value});
+        e.target.placeholder = '';
+    };
 
     updateScroll = () => {
         const messagesFlow = document.getElementById('messages');
@@ -47,7 +55,7 @@ class Chat extends Component {
             user = found[0];
         }
         else {
-            const newAvatar = <Avatar name={username} round={true} size="20px"/>;
+            const newAvatar = <Avatar name={username} round={true} size='30px' textSizeRatio='2'/>;
             const newUser = {
                 name: username,
                 avatar: newAvatar
@@ -71,28 +79,35 @@ class Chat extends Component {
     
     render() {
         return (
-            <div>
-                <div className='chat-room'>
-                    <Messages props={this.state} />
-                </div>
+            <div className='main'>
                 <div className='user-info'>
                     <input type='text'
+                           name='username'
                            placeholder='username'
                            className='form-name'
                            value={this.state.username}
-                           onChange={e => this.setState({username: e.target.value})}
+                           onChange={this.onFieldChange}
+                           onFocus={this.onFieldChange}
                     />
                     <br/>
-                    <input type='text'
+                    <textarea type='text'
+                           name='message'
                            placeholder='message'
                            className='form-message'
                            value={this.state.message}
-                           onChange={e => this.setState({message: e.target.value})}
+                           onChange={this.onFieldChange}
+                           onFocus={this.onFieldChange}
+                           rows={2}
                     />
                     <br/>
                     <button className='send-button'
                             onClick={this.sendMessage}
-                    >Send</button>
+                    >
+                        <span className='icon'/>
+                    </button>
+                </div>
+                <div className='chat-room'>
+                    <Messages props={this.state} />
                 </div>
             </div>
         );

@@ -7,9 +7,8 @@ class App extends Component {
         return (
             <div className="App">
                 <header className="App-header">
-                    <p>
-                      My Chat app
-                    </p>
+                    <span className='icon' />
+                    <span>Chatty</span>
                 </header>
               <div>
                 <Chat/>

@@ -1,44 +1,159 @@
+body {
+  background: black;
+}
 .App {
   text-align: center;
   justify-content: center;
   align-items: center;
+  padding: 15px;
+  font-family: "Calibri Light";
 
   .App-header {
-    background-color: #282c34;
-    height: 20vh;
+    height: 15vh;
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 26px;
+    justify-content: left;
+    font-size: 38px;
     color: white;
-    margin-bottom: 50px;
+    margin-bottom: 25px;
+    padding-left: 5vw;
+    font-weight: 700;
+    font-family: "Calibri";
+
+    .icon {
+      width: 50px;
+      height: 50px;
+      background: url("../Assets/heart-chat.png");
+      background-size: cover;
+      margin-right: 15px;
+    }
   }
 
-  .chat-room {
+  .main {
+    padding: 0 5vw;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
 
-    .messages {
+    .user-info {
+      width: 15vw;
+      margin-right: 20px;
+      .form-name, .form-message {
+        font-family: "Calibri Light";
+        width: 100%;
+        font-size: 14px;
+        line-height: 2;
+        border-radius: 10px;
+        padding: 5px 10px;
+        margin-bottom: 20px;
+        outline: 0;
+        border: 0;
+      }
+      .send-button {
+        background: white;
+        border: 0;
+        border-radius: 55px;
+        padding: 0px;
+        width: 50px;
+        height: 50px;
+        &:hover {
+          transform: scale(1.1);
+        }
+        .icon {
+          background: url("../Assets/send.png");
+          background-size: contain;
+          height: 35px;
+          display: block;
+          background-repeat: no-repeat;
+          background-position-x: 25%;
+        }
+      }
+    }
+
+    .chat-room {
+      display: flex;
       align-items: center;
-      border: 2px solid blue;
-      width: 50vw;
-      font-size: 16px;
-      padding: 20px;
-      min-height: 40vh;
-      max-height: 40vh;
-      overflow-y: scroll;
+      justify-content: center;
 
-      .message {
-        text-align: left;
-        background-color: whitesmoke;
-        padding: 2px 15px;
-        margin: 10px 0;
+      .messages {
+        align-items: center;
+        width: 50vw;
+        font-size: 16px;
+        padding: 20px;
+        height: 60vh;
+        overflow-y: scroll;
+        background: url("../Assets/frenchi.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        scrollbar-padding-right: 5px;
 
-        .avatar {
-          margin-right: 5px;
+        &::-webkit-scrollbar {
+          width: 10px;
+        }
+
+        &::-webkit-scrollbar-track {
+          background-color: transparent;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background-color: rgba(0, 0, 0, 0.6);
+          outline: 1px solid slategrey;
+          border-radius: 20px;
+        }
+
+        .message {
+          text-align: left;
+          background-color: rgba(255, 255, 255, 0.7);
+          padding: 2px 15px;
+          margin: 10px 0;
+          border-radius: 10px;
+          line-height: 2;
+
+          .avatar {
+            margin-right: 5px;
+            .sb-avatar__text {
+              font-weight: 700;
+            }
+          }
+        }
+        // end .message
+      }
+      // end .messages
+    }
+    // end .chat-room
+  }
+  // end .main
+
+  @media(max-width: 550px) {
+    .main {
+      flex-direction: column-reverse;
+      .user-info {
+        width: 100%;
+        margin: 15px 0;
+        display: flex;
+        flex-wrap: wrap;
+        .form-name {
+          width: 80%;
+        }
+        .form-message {
+          display: inline-flex;
+          width: 80%;
+        }
+        .send-button {
+          margin-top: 20vh;
+          margin-left: 72vw;
+          position: absolute;
+          width: 30px;
+          height: 30px;
+          .icon {
+            height: 20px;
+          }
+        }
+      }
+      .chat-room {
+        .messages {
+          width: 100%;
         }
       }
     }
   }
-}
+} // end .App
