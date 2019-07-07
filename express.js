@@ -2,9 +2,9 @@ var express = require('express');
 var app = express();
 var socket = require('socket.io');
 
-
-server = app.listen(8080, function(){
-    console.log('server is running on port 8080')
+app.set('port', (process.env.PORT || 8080))
+server = app.listen(app.get('port'), function(){
+    console.log(`server is running on port ${app.get('port')}`)
 });
 
 io = socket(server);
