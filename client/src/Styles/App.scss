@@ -33,6 +33,7 @@ body {
     padding: 0 5vw;
     display: flex;
     justify-content: space-evenly;
+    align-items: flex-start;
 
     .user-info {
       width: 15vw;
@@ -67,6 +68,15 @@ body {
           background-position-x: 25%;
         }
       }
+    }
+
+    .room-users {
+      color: white;
+      margin-top: 8vh;
+      border-top: 2px solid;
+      padding: 10px;
+      overflow: visible;
+      overflow-wrap: break-word;
     }
 
     .chat-room {
@@ -126,6 +136,10 @@ body {
   @media(max-width: 550px) {
     .main {
       flex-direction: column-reverse;
+      .room-users {
+        margin-top: 1vh;
+        width: 100%;
+      }
       .user-info {
         width: 100%;
         margin: 15px 0;

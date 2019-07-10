@@ -105,6 +105,12 @@ class Chat extends Component {
                     >
                         <span className='icon'/>
                     </button>
+                    <div className="room-users">
+                        <b>Who's in the room?</b>
+                        {this.state.users.map( user => {
+                            return <div>{user.name}<br/></div>
+                        })}
+                    </div>
                 </div>
                 <div className='chat-room'>
                     <Messages props={this.state} />
